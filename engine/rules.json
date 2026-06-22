@@ -1,0 +1,390 @@
+{
+  "_meta": {
+    "version": "1.0.0",
+    "country": "KE",
+    "last_updated": "2026-06-16",
+    "sources": [
+      "Kenya Revenue Authority (KRA)",
+      "Data Protection Act 2019 (Kenya)",
+      "Business Registration Service Act",
+      "Employment Act 2007 (Kenya)",
+      "County Government Business Licensing"
+    ]
+  },
+
+  "business_types": {
+    "online_shop": {
+      "label": "Online Shop / E-Commerce",
+      "description": "Sells goods or services primarily through the internet or social media",
+      "obligations": [
+        {
+          "id": "OBL-001",
+          "category": "business_registration",
+          "title": "Business Name Registration",
+          "description": "Register your business name with the Business Registration Service (BRS) via eCitizen.",
+          "authority": "Business Registration Service",
+          "threshold": null,
+          "applies_always": true,
+          "action": "Visit ecitizen.go.ke and register under 'Business Registration'",
+          "penalty": "Operating an unregistered business is an offence under the Business Registration Service Act."
+        },
+        {
+          "id": "OBL-002",
+          "category": "tax",
+          "title": "PIN Registration with KRA",
+          "description": "Obtain a Personal Identification Number (PIN) from Kenya Revenue Authority.",
+          "authority": "Kenya Revenue Authority",
+          "threshold": null,
+          "applies_always": true,
+          "action": "Register at itax.kra.go.ke for a KRA PIN",
+          "penalty": "Fines up to KES 10,000 for failure to register."
+        },
+        {
+          "id": "OBL-003",
+          "category": "tax",
+          "title": "VAT Registration",
+          "description": "Register for Value Added Tax (VAT) if your annual taxable turnover exceeds KES 5 million.",
+          "authority": "Kenya Revenue Authority",
+          "threshold": {
+            "type": "annual_turnover",
+            "currency": "KES",
+            "amount": 5000000
+          },
+          "applies_always": false,
+          "action": "Register for VAT on iTax. File VAT returns monthly.",
+          "penalty": "Penalty of 5% of tax due plus interest at 1% per month."
+        },
+        {
+          "id": "OBL-004",
+          "category": "data_protection",
+          "title": "Data Protection Compliance",
+          "description": "If you collect customer personal data (names, emails, phone numbers, payment info), you must comply with the Data Protection Act 2019.",
+          "authority": "Office of the Data Protection Commissioner (ODPC)",
+          "threshold": null,
+          "applies_when": "collects_customer_data",
+          "applies_always": false,
+          "action": "Register as a Data Controller at odpc.go.ke. Create a privacy policy.",
+          "penalty": "Fines up to KES 3 million or 1% of annual gross revenue."
+        },
+        {
+          "id": "OBL-005",
+          "category": "county_license",
+          "title": "Single Business Permit",
+          "description": "Obtain a Single Business Permit (SBP) from your county government if operating from a physical premises.",
+          "authority": "County Government",
+          "threshold": null,
+          "applies_when": "has_physical_premises",
+          "applies_always": false,
+          "action": "Apply at your county government offices or eCitizen portal. Renew annually.",
+          "penalty": "Closure of business and fines vary by county."
+        }
+      ],
+      "risk_factors": {
+        "collects_customer_data": { "weight": 3, "level": "high" },
+        "has_employees": { "weight": 2, "level": "medium" },
+        "unregistered_business": { "weight": 3, "level": "high" },
+        "no_kra_pin": { "weight": 3, "level": "high" },
+        "turnover_above_vat_threshold": { "weight": 2, "level": "medium" }
+      }
+    },
+
+    "freelancer": {
+      "label": "Freelancer / Self-Employed",
+      "description": "Individual providing services independently (e.g., designer, developer, consultant, writer)",
+      "obligations": [
+        {
+          "id": "OBL-002",
+          "category": "tax",
+          "title": "PIN Registration with KRA",
+          "description": "All individuals earning income in Kenya must have a KRA PIN.",
+          "authority": "Kenya Revenue Authority",
+          "threshold": null,
+          "applies_always": true,
+          "action": "Register at itax.kra.go.ke",
+          "penalty": "Fines up to KES 10,000."
+        },
+        {
+          "id": "OBL-006",
+          "category": "tax",
+          "title": "Annual Income Tax Return",
+          "description": "File an annual income tax return by 30th June each year, even if you had no income.",
+          "authority": "Kenya Revenue Authority",
+          "threshold": null,
+          "applies_always": true,
+          "action": "File on iTax under 'Returns > Income Tax - Resident Individual'",
+          "penalty": "Late filing penalty of KES 2,000 per month or 5% of tax due."
+        },
+        {
+          "id": "OBL-007",
+          "category": "tax",
+          "title": "Withholding Tax Awareness",
+          "description": "Clients may deduct withholding tax (5%) on payments to you. Claim these credits when filing your return.",
+          "authority": "Kenya Revenue Authority",
+          "threshold": null,
+          "applies_always": true,
+          "action": "Request withholding tax certificates from clients. Track on iTax.",
+          "penalty": "Missed credits result in overpayment of tax."
+        },
+        {
+          "id": "OBL-004",
+          "category": "data_protection",
+          "title": "Data Protection Compliance",
+          "description": "If you handle client personal data, comply with the Data Protection Act 2019.",
+          "authority": "Office of the Data Protection Commissioner",
+          "threshold": null,
+          "applies_when": "collects_customer_data",
+          "applies_always": false,
+          "action": "Register as a Data Controller at odpc.go.ke if processing personal data regularly.",
+          "penalty": "Fines up to KES 3 million."
+        },
+        {
+          "id": "OBL-003",
+          "category": "tax",
+          "title": "VAT Registration",
+          "description": "Register for VAT if annual turnover from services exceeds KES 5 million.",
+          "authority": "Kenya Revenue Authority",
+          "threshold": {
+            "type": "annual_turnover",
+            "currency": "KES",
+            "amount": 5000000
+          },
+          "applies_always": false,
+          "action": "Register for VAT on iTax.",
+          "penalty": "5% penalty on tax due plus interest."
+        }
+      ],
+      "risk_factors": {
+        "collects_customer_data": { "weight": 2, "level": "medium" },
+        "no_kra_pin": { "weight": 3, "level": "high" },
+        "never_filed_returns": { "weight": 3, "level": "high" },
+        "turnover_above_vat_threshold": { "weight": 2, "level": "medium" }
+      }
+    },
+
+    "retail_store": {
+      "label": "Retail Store / Shop",
+      "description": "Physical shop selling goods to customers (e.g., grocery, clothes, hardware, electronics)",
+      "obligations": [
+        {
+          "id": "OBL-001",
+          "category": "business_registration",
+          "title": "Business Name Registration",
+          "description": "Register your business name with BRS before operating.",
+          "authority": "Business Registration Service",
+          "threshold": null,
+          "applies_always": true,
+          "action": "Register at ecitizen.go.ke under Business Registration.",
+          "penalty": "Criminal offence under the Business Registration Service Act."
+        },
+        {
+          "id": "OBL-005",
+          "category": "county_license",
+          "title": "Single Business Permit",
+          "description": "All physical businesses must obtain an annual Single Business Permit from the county.",
+          "authority": "County Government",
+          "threshold": null,
+          "applies_always": true,
+          "action": "Apply at your county offices. Renew every January.",
+          "penalty": "Business closure and fines."
+        },
+        {
+          "id": "OBL-002",
+          "category": "tax",
+          "title": "PIN Registration with KRA",
+          "description": "Register for a KRA PIN to file taxes and conduct business.",
+          "authority": "Kenya Revenue Authority",
+          "threshold": null,
+          "applies_always": true,
+          "action": "Register at itax.kra.go.ke",
+          "penalty": "Fines up to KES 10,000."
+        },
+        {
+          "id": "OBL-003",
+          "category": "tax",
+          "title": "VAT Registration",
+          "description": "Register for VAT if annual sales exceed KES 5 million.",
+          "authority": "Kenya Revenue Authority",
+          "threshold": {
+            "type": "annual_turnover",
+            "currency": "KES",
+            "amount": 5000000
+          },
+          "applies_always": false,
+          "action": "Register on iTax. Issue ETR receipts. File VAT returns monthly.",
+          "penalty": "5% penalty plus 1% monthly interest. ETR non-compliance: KES 200,000 or 3 years imprisonment."
+        },
+        {
+          "id": "OBL-008",
+          "category": "employment",
+          "title": "Employee Registration (NSSF & NHIF)",
+          "description": "If you have employees, register them with NSSF (social security) and NHIF (health insurance) and remit contributions monthly.",
+          "authority": "NSSF / NHIF",
+          "threshold": null,
+          "applies_when": "has_employees",
+          "applies_always": false,
+          "action": "Register employees at nssf.or.ke and nhif.or.ke. Remit by 9th of each month.",
+          "penalty": "Fines and criminal liability for non-remittance."
+        },
+        {
+          "id": "OBL-009",
+          "category": "employment",
+          "title": "PAYE Deduction",
+          "description": "Deduct Pay As You Earn (PAYE) income tax from employee salaries and remit to KRA by the 9th of each month.",
+          "authority": "Kenya Revenue Authority",
+          "threshold": null,
+          "applies_when": "has_employees",
+          "applies_always": false,
+          "action": "Calculate PAYE via KRA PAYE calculator. Remit on iTax.",
+          "penalty": "25% penalty on unpaid PAYE plus interest."
+        }
+      ],
+      "risk_factors": {
+        "unregistered_business": { "weight": 3, "level": "high" },
+        "no_county_permit": { "weight": 3, "level": "high" },
+        "no_kra_pin": { "weight": 3, "level": "high" },
+        "has_employees_no_nssf": { "weight": 3, "level": "high" },
+        "has_employees_no_paye": { "weight": 3, "level": "high" },
+        "turnover_above_vat_threshold": { "weight": 2, "level": "medium" }
+      }
+    },
+
+    "food_vendor": {
+      "label": "Food Vendor / Restaurant / Mkokoteni",
+      "description": "Sells prepared food or beverages, including street food, kiosks, cafes, and restaurants",
+      "obligations": [
+        {
+          "id": "OBL-005",
+          "category": "county_license",
+          "title": "Single Business Permit",
+          "description": "Required for all food businesses operating from any premises.",
+          "authority": "County Government",
+          "threshold": null,
+          "applies_always": true,
+          "action": "Apply at your county offices.",
+          "penalty": "Business closure."
+        },
+        {
+          "id": "OBL-010",
+          "category": "health_permit",
+          "title": "Food Hygiene / Health Certificate",
+          "description": "You and any food handlers must obtain a valid Food Handler's Certificate from the county public health office.",
+          "authority": "County Public Health Department",
+          "threshold": null,
+          "applies_always": true,
+          "action": "Visit your nearest public health office. Renew annually. Keep premises clean for inspection.",
+          "penalty": "Immediate closure, fines, and potential criminal charges."
+        },
+        {
+          "id": "OBL-002",
+          "category": "tax",
+          "title": "PIN Registration with KRA",
+          "description": "Register for a KRA PIN.",
+          "authority": "Kenya Revenue Authority",
+          "threshold": null,
+          "applies_always": true,
+          "action": "Register at itax.kra.go.ke",
+          "penalty": "Fines up to KES 10,000."
+        },
+        {
+          "id": "OBL-008",
+          "category": "employment",
+          "title": "Employee Registration (NSSF & NHIF)",
+          "description": "Register and remit for any employees monthly.",
+          "authority": "NSSF / NHIF",
+          "threshold": null,
+          "applies_when": "has_employees",
+          "applies_always": false,
+          "action": "Register at nssf.or.ke and nhif.or.ke.",
+          "penalty": "Criminal liability for non-remittance."
+        }
+      ],
+      "risk_factors": {
+        "no_health_certificate": { "weight": 3, "level": "high" },
+        "no_county_permit": { "weight": 3, "level": "high" },
+        "no_kra_pin": { "weight": 2, "level": "medium" },
+        "has_employees_no_nssf": { "weight": 3, "level": "high" }
+      }
+    },
+
+    "agent_service": {
+      "label": "Mobile Money / M-Pesa Agent",
+      "description": "Licensed agent providing mobile money, airtime, or payment services",
+      "obligations": [
+        {
+          "id": "OBL-011",
+          "category": "licensing",
+          "title": "Agent Authorization Letter",
+          "description": "You must hold a valid agent authorization from your principal (e.g., Safaricom for M-Pesa). Display it visibly.",
+          "authority": "Central Bank of Kenya / Principal",
+          "threshold": null,
+          "applies_always": true,
+          "action": "Obtain and display authorization. Renew as required by principal.",
+          "penalty": "Deregistration and criminal charges for operating without authorization."
+        },
+        {
+          "id": "OBL-005",
+          "category": "county_license",
+          "title": "Single Business Permit",
+          "description": "Required for operating a physical agent outlet.",
+          "authority": "County Government",
+          "threshold": null,
+          "applies_always": true,
+          "action": "Apply at county offices.",
+          "penalty": "Business closure."
+        },
+        {
+          "id": "OBL-002",
+          "category": "tax",
+          "title": "PIN Registration with KRA",
+          "description": "Register for a KRA PIN.",
+          "authority": "Kenya Revenue Authority",
+          "threshold": null,
+          "applies_always": true,
+          "action": "Register at itax.kra.go.ke",
+          "penalty": "Fines up to KES 10,000."
+        },
+        {
+          "id": "OBL-012",
+          "category": "aml",
+          "title": "Know Your Customer (KYC) Compliance",
+          "description": "Verify customer identity for transactions above regulatory thresholds. Maintain transaction records.",
+          "authority": "Central Bank of Kenya / Financial Reporting Centre",
+          "threshold": null,
+          "applies_always": true,
+          "action": "Always verify ID for large transactions. Keep records for at least 7 years.",
+          "penalty": "Fines up to KES 1 million and agent deregistration."
+        }
+      ],
+      "risk_factors": {
+        "no_agent_authorization": { "weight": 3, "level": "high" },
+        "no_county_permit": { "weight": 3, "level": "high" },
+        "no_kyc_process": { "weight": 3, "level": "high" },
+        "no_kra_pin": { "weight": 2, "level": "medium" }
+      }
+    }
+  },
+
+  "risk_scoring": {
+    "thresholds": {
+      "low": { "min": 0, "max": 3 },
+      "medium": { "min": 4, "max": 7 },
+      "high": { "min": 8, "max": 999 }
+    },
+    "weight_map": {
+      "high": 3,
+      "medium": 2,
+      "low": 1
+    }
+  },
+
+  "categories": {
+    "business_registration": "Business Registration",
+    "tax": "Tax Compliance",
+    "data_protection": "Data Protection",
+    "county_license": "County Licensing",
+    "employment": "Employment Law",
+    "health_permit": "Health & Safety",
+    "licensing": "Sector Licensing",
+    "aml": "Anti-Money Laundering"
+  }
+}
