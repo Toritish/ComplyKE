@@ -6,6 +6,8 @@ Endpoints:
   POST /ussd   — Africa's Talking USSD callback
   GET  /health — Health check
 """
+from dotenv import load_dotenv
+load_dotenv()
 
 from flask import Flask, request, Response
 from ussd.handler import handle_ussd

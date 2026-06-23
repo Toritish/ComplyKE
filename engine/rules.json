@@ -52,7 +52,7 @@
           },
           "applies_always": false,
           "action": "Register for VAT on iTax. File VAT returns monthly.",
-          "penalty": "Penalty of 5% of tax due plus interest at 1% per month."
+          "penalty": "Penalty of 5 percent of tax due plus interest at 1 percent per month."
         },
         {
           "id": "OBL-004",
@@ -64,7 +64,7 @@
           "applies_when": "collects_customer_data",
           "applies_always": false,
           "action": "Register as a Data Controller at odpc.go.ke. Create a privacy policy.",
-          "penalty": "Fines up to KES 3 million or 1% of annual gross revenue."
+          "penalty": "Fines up to KES 3 million or 1 percent of annual gross revenue."
         },
         {
           "id": "OBL-005",
@@ -112,13 +112,13 @@
           "threshold": null,
           "applies_always": true,
           "action": "File on iTax under 'Returns > Income Tax - Resident Individual'",
-          "penalty": "Late filing penalty of KES 2,000 per month or 5% of tax due."
+          "penalty": "Late filing penalty of KES 2,000 per month or 5 percent of tax due."
         },
         {
           "id": "OBL-007",
           "category": "tax",
           "title": "Withholding Tax Awareness",
-          "description": "Clients may deduct withholding tax (5%) on payments to you. Claim these credits when filing your return.",
+          "description": "Clients may deduct withholding tax (5 percent) on payments to you. Claim these credits when filing your return.",
           "authority": "Kenya Revenue Authority",
           "threshold": null,
           "applies_always": true,
@@ -150,7 +150,7 @@
           },
           "applies_always": false,
           "action": "Register for VAT on iTax.",
-          "penalty": "5% penalty on tax due plus interest."
+          "penalty": "5 percent penalty on tax due plus interest."
         }
       ],
       "risk_factors": {
@@ -211,7 +211,7 @@
           },
           "applies_always": false,
           "action": "Register on iTax. Issue ETR receipts. File VAT returns monthly.",
-          "penalty": "5% penalty plus 1% monthly interest. ETR non-compliance: KES 200,000 or 3 years imprisonment."
+          "penalty": "5 percent penalty plus 1 percent monthly interest. ETR non-compliance: KES 200,000 or 3 years imprisonment."
         },
         {
           "id": "OBL-008",
@@ -235,7 +235,7 @@
           "applies_when": "has_employees",
           "applies_always": false,
           "action": "Calculate PAYE via KRA PAYE calculator. Remit on iTax.",
-          "penalty": "25% penalty on unpaid PAYE plus interest."
+          "penalty": "25 percent penalty on unpaid PAYE plus interest."
         }
       ],
       "risk_factors": {
