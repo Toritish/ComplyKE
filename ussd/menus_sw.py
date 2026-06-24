@@ -35,7 +35,7 @@ def text_end(risk_level: str, emoji: str, obl_count: int) -> str:
     level_sw = {"LOW": "CHINI", "MEDIUM": "WASTANI", "HIGH": "JUU"}.get(risk_level, risk_level)
     return (
         f"Hatari: {emoji} {level_sw}\n"
-        f"Una wajibu {obl_count} wa kisheria.\n"
-        f"Maelezo kamili yametumwa kwa SMS.\n"
-        f"Piga tena *384*GRC# wakati wowote."
+        f"Wajibu {obl_count} wamepatikana.\n"
+        f"Ripoti imetumwa kwa SMS.\n"
+        f"Jibu NDIYO kupata vikumbusho."
     )

@@ -33,10 +33,11 @@ MENU_TURNOVER = """Is your annual revenue above KES 5 million?
 
 def text_end(risk_level: str, emoji: str, obl_count: int) -> str:
     return (
-        f"Risk Level: {emoji} {risk_level}\n"
-        f"You have {obl_count} compliance obligation(s).\n"
-        f"Full details sent via SMS.\n"
-        f"Dial again anytime to re-check."
+        f"Risk: {emoji} {risk_level}\n"
+        f"{obl_count} obligation(s) found.\n"
+        f"Full report sent via SMS.\n"
+        f"Reply YES to the code 30123.\n"
+        f"for deadline reminders."
     )
 
 

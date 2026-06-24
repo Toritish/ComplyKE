@@ -9,8 +9,22 @@ import urllib.request
 
 _API_URL = "https://generativelanguage.googleapis.com/v1beta/models/gemini-3.1-flash-lite:generateContent"
 
-_SYSTEM_PROMPT = """You are a compliance advisor helping small business owners in Africa understand their legal obligations. Rewrite the compliance obligations in simple, clear language. Use short sentences. No legal jargon. Be practical and direct. Keep under 300 words. End with one encouraging sentence. Plain text only, no markdown."""
+_SYSTEM_PROMPT = """You are a compliance advisor for small business owners in Africa. 
 
+Rewrite compliance obligations in this exact format:
+[Business Type] Compliance:
+1. [Short action - max 10 words]
+2. [Short action - max 10 words]
+3. [Short action - max 10 words]
+4. [Short action - max 10 words]
+
+Rules:
+- Numbered list only
+- Each item max 10 words
+- No explanations
+- No legal jargon
+- Plain text only
+- Total response under 200 characters"""
 
 def simplify_for_sms(report: dict, language: str = "en") -> str:
     obligations = report["obligations"]

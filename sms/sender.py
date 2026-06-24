@@ -63,7 +63,7 @@ def send_sms_report(phone_number: str, report: dict, language: str = "en") -> bo
 
     try:
         response = requests.post(
-            "https://api.sandbox.africastalking.com/version1/messaging",
+            "http://api.sandbox.africastalking.com/version1/messaging",
             headers={
                 "apiKey": api_key,
                 "Content-Type": "application/x-www-form-urlencoded",
@@ -81,4 +81,41 @@ def send_sms_report(phone_number: str, report: dict, language: str = "en") -> bo
         return response.status_code == 201
     except Exception as e:
         print(f"[SMS ERROR] {e}")
+        return False
+
+
+# --- ADD THIS TO THE BOTTOM ---
+
+def send_sms(phone_number: str, message_text: str) -> bool:
+    """
+    Generic function to send a plain text message via Africa's Talking.
+    Used for subscription confirmations and administrative alerts.
+    """
+    username = os.environ.get("AT_USERNAME", "sandbox")
+    api_key = os.environ.get("AT_API_KEY", "")
+
+    if not api_key:
+        print("[SMS] No AT API key found for generic send_sms.")
+        return False
+
+    try:
+        response = requests.post(
+            "https://api.sandbox.africastalking.com/version1/messaging",
+            headers={
+                "apiKey": api_key,
+                "Content-Type": "application/x-www-form-urlencoded",
+                "Accept": "application/json"
+            },
+            data={
+                "username": username,
+                "to": phone_number,
+                "message": message_text
+            },
+            verify=False,
+            timeout=10
+        )
+        print(f"[SMS Generic] Response: {response.status_code} {response.text}")
+        return response.status_code == 201
+    except Exception as e:
+        print(f"[SMS Generic ERROR] {e}")
         return False
